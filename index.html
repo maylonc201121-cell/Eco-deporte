@@ -1,727 +1,81 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#123c2b">
-<meta name="description" content="ECO-Deporte: un tiro limpio por el planeta. Tachos recreativos elaborados con materiales reciclados para divertirnos y cuidar el aula.">
+<meta name="description" content="ECO-Deporte: tachos recreativos hechos con materiales reciclados para divertirnos y cuidar el aula.">
 <title>ECO-Deporte | Un tiro limpio por el planeta</title>
-
 <style>
-:root {
-  --verde:#123c2b;
-  --verde2:#21764b;
-  --verde3:#e1f3e6;
-  --amarillo:#ffd447;
-  --fondo:#f5f8f5;
-  --texto:#1d2b22;
-  --blanco:#fff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--fondo);
-  color:var(--texto);
-  line-height:1.6;
-}
-a{text-decoration:none}
-header{
-  background:var(--verde);
-  color:white;
-  padding:15px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-  position:sticky;
-  top:0;
-  z-index:20;
-}
-.logo{font-size:25px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--amarillo)}
-nav{display:flex;gap:16px;flex-wrap:wrap}
-nav a{color:white;font-size:14px;font-weight:bold}
-nav a:hover{color:var(--amarillo)}
-.boton{
-  display:inline-block;
-  background:var(--amarillo);
-  color:#26351d;
-  border:0;
-  border-radius:12px;
-  padding:13px 21px;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:15px;
-  transition:.2s;
-  text-align:center;
-}
-.boton:hover{transform:translateY(-2px)}
-.boton-verde{background:var(--verde2);color:white}
-.hero{
-  background:linear-gradient(130deg,#123c2b,#23764b);
-  color:white;
-  padding:75px 7%;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:35px;
-  align-items:center;
-}
-.etiqueta{
-  display:inline-block;
-  background:var(--amarillo);
-  color:#24351f;
-  padding:7px 15px;
-  border-radius:30px;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:18px;
-}
-.hero h1{
-  font-size:clamp(38px,6vw,65px);
-  line-height:1.08;
-  margin-bottom:18px;
-}
-.hero h1 span{color:var(--amarillo)}
-.hero p{font-size:18px;color:#e7f3e9;margin-bottom:25px}
-.hero-visual{
-  min-height:280px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.tacho-ilustrado{
-  width:190px;
-  height:190px;
-  background:#c99a59;
-  border:7px solid #80572f;
-  border-radius:10px 10px 24px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#23472d;
-  font-size:36px;
-  font-weight:900;
-  position:relative;
-  box-shadow:10px 13px 0 #0002;
-}
-.tacho-ilustrado:before{
-  content:"";
-  position:absolute;
-  top:-15px;
-  width:200px;
-  height:14px;
-  background:#80572f;
-  border-radius:8px;
-}
-.mini-aro{
-  position:absolute;
-  top:-78px;
-  width:95px;
-  height:65px;
-  border:8px solid #e45d2d;
-  border-bottom:0;
-  border-radius:50% 50% 0 0;
-}
-.mini-aro:after{
-  content:"";
-  position:absolute;
-  top:57px;
-  left:5px;
-  width:65px;
-  height:42px;
-  border:3px solid white;
-  border-top:0;
-}
-section{padding:65px 7%}
-.titulo{text-align:center;margin-bottom:35px}
-.titulo small{
-  color:var(--verde2);
-  font-weight:bold;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.titulo h2{
-  color:var(--verde);
-  font-size:clamp(27px,4vw,38px);
-  margin:7px 0;
-}
-.titulo p{max-width:680px;margin:auto;color:#617067}
-.tarjetas{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.tarjeta{
-  background:white;
-  border-radius:17px;
-  padding:25px;
-  box-shadow:0 5px 20px #0000000c;
-  border:1px solid #e4ece5;
-}
-.tarjeta h3{color:var(--verde2);margin:8px 0}
-.icono{font-size:38px}
-.propuesta{background:var(--verde3)}
-.productos{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
-}
-.producto{
-  background:white;
-  border-radius:17px;
-  padding:19px;
-  text-align:center;
-  box-shadow:0 5px 18px #0000000c;
-  border:2px solid transparent;
-  transition:.2s;
-}
-.producto.seleccionado{
-  border-color:var(--verde2);
-  background:#f0fff4;
-}
-.dibujo-tacho{
-  height:120px;
-  width:100px;
-  margin:22px auto 15px;
-  background:#c99a59;
-  border:5px solid #80572f;
-  border-radius:8px 8px 15px 15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  color:#24452e;
-  font-weight:900;
-  font-size:25px;
-}
-.dibujo-tacho:before{
-  content:"";
-  position:absolute;
-  width:108px;
-  height:10px;
-  top:-10px;
-  left:-9px;
-  background:#80572f;
-  border-radius:5px;
-}
-.dibujo-tacho .aro{
-  position:absolute;
-  width:54px;
-  height:38px;
-  border:5px solid #e45d2d;
-  border-bottom:0;
-  border-radius:50% 50% 0 0;
-  top:-49px;
-}
-.producto:nth-child(2) .dibujo-tacho{background:#8fc89b}
-.producto:nth-child(3) .dibujo-tacho{background:#ed8953}
-.producto:nth-child(4) .dibujo-tacho{background:#9b9de1}
-.producto h3{color:var(--verde);font-size:17px}
-.producto p{font-size:13px;color:#657168;min-height:55px;margin:7px 0}
-.precio{font-size:27px;color:var(--verde2);font-weight:900;margin:10px 0}
-.producto button{width:100%}
-.aviso{
-  margin-top:25px;
-  background:#fff3c6;
-  color:#624b00;
-  padding:16px;
-  border-radius:12px;
-  text-align:center;
-  font-weight:bold;
-}
-.personalizador{
-  background:white;
-  max-width:750px;
-  margin:auto;
-  padding:27px;
-  border-radius:18px;
-  box-shadow:0 5px 20px #0000000c;
-}
-.campo{margin-bottom:16px}
-.campo label{display:block;font-weight:bold;color:var(--verde);margin-bottom:6px}
-.campo input,.campo select,.campo textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #cbd8ce;
-  border-radius:9px;
-  font-size:15px;
-  font-family:inherit;
-  background:white;
-}
-#precioPersonalizado{font-size:23px;color:var(--verde2);font-weight:900;margin:14px 0}
-.juego-seccion{background:#eaf3ed}
-.juego-contenedor{
-  max-width:850px;
-  margin:auto;
-  background:white;
-  padding:24px;
-  border-radius:20px;
-  box-shadow:0 7px 25px #0000000d;
-}
-.instrucciones{text-align:center}
-.instrucciones h3{color:var(--verde);font-size:24px}
-.instrucciones p{color:#59675e}
-.puntajes{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:17px 0;
-}
-.puntaje{
-  background:var(--verde);
-  color:white;
-  padding:10px 18px;
-  border-radius:12px;
-  font-weight:bold;
-}
-#cancha{
-  display:block;
-  width:100%;
-  max-width:720px;
-  height:auto;
-  margin:auto;
-  border-radius:14px;
-  border:3px solid #bdd5c0;
-  background:#dcebdc;
-}
-.controles-juego{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:17px;
-}
-#mensajeJuego{
-  text-align:center;
-  color:var(--verde);
-  font-weight:bold;
-  margin-top:12px;
-  min-height:27px;
-}
-.promo{background:var(--verde);color:white;text-align:center}
-.promo h2{font-size:clamp(27px,4vw,38px);margin-bottom:10px}
-.promo p{max-width:650px;margin:0 auto 20px;color:#e4f2e8}
-.equipo{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-}
-.integrante{
-  background:white;
-  border-radius:14px;
-  padding:20px 10px;
-  text-align:center;
-  border-bottom:4px solid var(--verde2);
-}
-.avatar{font-size:32px}
-.integrante h3{font-size:15px;color:var(--verde)}
-.integrante p{font-size:13px;color:#68736c}
-.contacto{background:var(--verde3);text-align:center}
-.contacto h2{color:var(--verde);font-size:32px}
-.telefono{
-  display:inline-block;
-  color:var(--verde2);
-  font-size:25px;
-  font-weight:900;
-  text-decoration:underline;
-  margin:13px 0;
-}
-footer{
-  background:#0c2b1d;
-  color:white;
-  padding:25px 7%;
-  text-align:center;
-  font-size:14px;
-}
-footer strong{color:var(--amarillo)}
-@media(max-width:850px){
-  .hero{grid-template-columns:1fr;text-align:center}
-  .productos{grid-template-columns:repeat(2,1fr)}
-  .equipo{grid-template-columns:repeat(2,1fr)}
-  .tarjetas{grid-template-columns:1fr}
-}
-@media(max-width:550px){
-  header{justify-content:center}
-  nav{justify-content:center}
-  .productos{grid-template-columns:1fr}
-  .hero{padding:55px 6%}
-  section{padding:48px 5%}
-  .juego-contenedor{padding:12px}
-  .telefono{font-size:22px}
-}
+:root{--verde:#123c2b;--verde2:#21764b;--verde3:#e1f3e6;--amarillo:#ffd447;--fondo:#f5f8f5;--texto:#1d2b22}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}a{text-decoration:none}
+header{background:var(--verde);color:white;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;position:sticky;top:0;z-index:20}.logo{font-size:25px;font-weight:900;letter-spacing:1px}.logo span{color:var(--amarillo)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;font-size:14px;font-weight:bold}nav a:hover{color:var(--amarillo)}
+.boton{display:inline-block;background:var(--amarillo);color:#26351d;border:0;border-radius:12px;padding:13px 21px;font-weight:bold;cursor:pointer;font-size:15px;transition:.2s;text-align:center}.boton:hover{transform:translateY(-2px)}.boton-verde{background:var(--verde2);color:white}
+.hero{background:linear-gradient(130deg,#123c2b,#23764b);color:white;padding:75px 7%;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}.etiqueta{display:inline-block;background:var(--amarillo);color:#24351f;padding:7px 15px;border-radius:30px;font-size:13px;font-weight:bold;margin-bottom:18px}.hero h1{font-size:clamp(38px,6vw,65px);line-height:1.08;margin-bottom:18px}.hero h1 span{color:var(--amarillo)}.hero p{font-size:18px;color:#e7f3e9;margin-bottom:25px}.hero-visual{min-height:280px;display:flex;align-items:center;justify-content:center}.tacho-ilustrado{width:190px;height:190px;background:#c99a59;border:7px solid #80572f;border-radius:10px 10px 24px 24px;display:flex;align-items:center;justify-content:center;color:#23472d;font-size:36px;font-weight:900;position:relative;box-shadow:10px 13px 0 #0002}.tacho-ilustrado:before{content:"";position:absolute;top:-15px;width:200px;height:14px;background:#80572f;border-radius:8px}.mini-aro{position:absolute;top:-78px;width:95px;height:65px;border:8px solid #e45d2d;border-bottom:0;border-radius:50% 50% 0 0}.mini-aro:after{content:"";position:absolute;top:57px;left:5px;width:65px;height:42px;border:3px solid white;border-top:0}
+section{padding:65px 7%}.titulo{text-align:center;margin-bottom:35px}.titulo small{color:var(--verde2);font-weight:bold;letter-spacing:2px;text-transform:uppercase}.titulo h2{color:var(--verde);font-size:clamp(27px,4vw,38px);margin:7px 0}.titulo p{max-width:680px;margin:auto;color:#617067}.tarjetas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.tarjeta{background:white;border-radius:17px;padding:25px;box-shadow:0 5px 20px #0000000c;border:1px solid #e4ece5}.tarjeta h3{color:var(--verde2);margin:8px 0}.icono{font-size:38px}.propuesta{background:var(--verde3)}
+.productos{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.producto{background:white;border-radius:17px;padding:19px;text-align:center;box-shadow:0 5px 18px #0000000c;border:2px solid transparent;transition:.2s}.producto.seleccionado{border-color:var(--verde2);background:#f0fff4}.dibujo-tacho{height:120px;width:100px;margin:22px auto 15px;background:#c99a59;border:5px solid #80572f;border-radius:8px 8px 15px 15px;display:flex;justify-content:center;align-items:center;position:relative;color:#24452e;font-weight:900;font-size:25px}.dibujo-tacho:before{content:"";position:absolute;width:108px;height:10px;top:-10px;left:-9px;background:#80572f;border-radius:5px}.dibujo-tacho .aro{position:absolute;width:54px;height:38px;border:5px solid #e45d2d;border-bottom:0;border-radius:50% 50% 0 0;top:-49px}.producto:nth-child(2) .dibujo-tacho{background:#8fc89b}.producto:nth-child(3) .dibujo-tacho{background:#ed8953}.producto:nth-child(4) .dibujo-tacho{background:#9b9de1}.producto h3{color:var(--verde);font-size:17px}.producto p{font-size:13px;color:#657168;min-height:55px;margin:7px 0}.precio{font-size:27px;color:var(--verde2);font-weight:900;margin:10px 0}.producto button{width:100%}.aviso{margin-top:25px;background:#fff3c6;color:#624b00;padding:16px;border-radius:12px;text-align:center;font-weight:bold}
+.personalizador{background:white;max-width:750px;margin:auto;padding:27px;border-radius:18px;box-shadow:0 5px 20px #0000000c}.campo{margin-bottom:16px}.campo label{display:block;font-weight:bold;color:var(--verde);margin-bottom:6px}.campo input,.campo select{width:100%;padding:12px;border:1px solid #cbd8ce;border-radius:9px;font-size:15px;font-family:inherit;background:white}#precioPersonalizado{font-size:23px;color:var(--verde2);font-weight:900;margin:14px 0}
+.juego-seccion{background:#eaf3ed}.juego-contenedor{max-width:850px;margin:auto;background:white;padding:24px;border-radius:20px;box-shadow:0 7px 25px #0000000d}.instrucciones{text-align:center}.instrucciones h3{color:var(--verde);font-size:24px}.instrucciones p{color:#59675e}.puntajes{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:17px 0}.puntaje{background:var(--verde);color:white;padding:10px 18px;border-radius:12px;font-weight:bold}#cancha{display:block;width:100%;max-width:720px;height:auto;margin:auto;border-radius:14px;border:3px solid #bdd5c0;background:#dcebdc}.controles-juego{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:17px}#mensajeJuego{text-align:center;color:var(--verde);font-weight:bold;margin-top:12px;min-height:27px}
+.promo{background:var(--verde);color:white;text-align:center}.promo h2{font-size:clamp(27px,4vw,38px);margin-bottom:10px}.promo p{max-width:650px;margin:0 auto 20px;color:#e4f2e8}.equipo{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.integrante{background:white;border-radius:14px;padding:20px 10px;text-align:center;border-bottom:4px solid var(--verde2)}.avatar{font-size:32px}.integrante h3{font-size:15px;color:var(--verde)}.integrante p{font-size:13px;color:#68736c}.contacto{background:var(--verde3);text-align:center}.contacto h2{color:var(--verde);font-size:32px}.telefono{display:inline-block;color:var(--verde2);font-size:25px;font-weight:900;text-decoration:underline;margin:13px 0}footer{background:#0c2b1d;color:white;padding:25px 7%;text-align:center;font-size:14px}footer strong{color:var(--amarillo)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;text-align:center}.productos{grid-template-columns:repeat(2,1fr)}.equipo{grid-template-columns:repeat(2,1fr)}.tarjetas{grid-template-columns:1fr}}
+@media(max-width:550px){header{justify-content:center}nav{justify-content:center}.productos{grid-template-columns:1fr}.hero{padding:55px 6%}section{padding:48px 5%}.juego-contenedor{padding:12px}.telefono{font-size:22px}}
 </style>
 </head>
-
 <body>
-
-<header>
-  <div class="logo">ECO<span>-</span>DEPORTE</div>
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#proyecto">Proyecto</a>
-    <a href="#productos">Diseños</a>
-    <a href="#juego">Jugar</a>
-    <a href="#equipo">Equipo</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
-
+<header><div class="logo">ECO<span>-</span>DEPORTE</div><nav><a href="#inicio">Inicio</a><a href="#proyecto">Proyecto</a><a href="#productos">Diseños</a><a href="#juego">Jugar</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a></nav></header>
 <main>
-
-<section class="hero" id="inicio">
-  <div>
-    <span class="etiqueta">♻️ Diversión que cuida el planeta</span>
-    <h1>Un tiro limpio por el <span>planeta</span></h1>
-    <p>
-      Convertimos el reciclaje en una experiencia divertida.
-      Conoce el Tacho Recreativo: una idea que une el deporte,
-      la creatividad y el cuidado de nuestro salón.
-    </p>
-    <a class="boton" href="#productos">Conoce nuestros diseños</a>
-  </div>
-  <div class="hero-visual">
-    <div class="tacho-ilustrado">
-      <div class="mini-aro"></div>
-      ECO
-    </div>
-  </div>
-</section>
-
-<section id="proyecto">
-  <div class="titulo">
-    <small>Conoce nuestra propuesta</small>
-    <h2>¿Por qué nace ECO-Deporte?</h2>
-    <p>Identificamos una situación en el aula y decidimos convertirla en una oportunidad de cambio.</p>
-  </div>
-  <div class="tarjetas">
-    <article class="tarjeta">
-      <div class="icono">📄</div>
-      <h3>El problema</h3>
-      <p>En las aulas quedan papeles en el suelo. Además, algunos estudiantes buscan diversión utilizando inadecuadamente el mobiliario escolar.</p>
-    </article>
-    <article class="tarjeta">
-      <div class="icono">💡</div>
-      <h3>Nuestra solución</h3>
-      <p>Elaboramos tachos recreativos con materiales reciclados y un pequeño aro de básquet para encestar bolitas de papel.</p>
-    </article>
-    <article class="tarjeta">
-      <div class="icono">🌎</div>
-      <h3>Nuestro propósito</h3>
-      <p>Promover la limpieza, la creatividad, el compañerismo y el cuidado del ambiente mediante una actividad recreativa.</p>
-    </article>
-  </div>
-</section>
-
-<section class="propuesta">
-  <div class="titulo">
-    <small>Nuestro valor</small>
-    <h2>¿Qué ofrecemos?</h2>
-    <p>Un producto creativo, económico y elaborado con materiales reciclados.</p>
-  </div>
-  <div class="tarjetas">
-    <article class="tarjeta">
-      <div class="icono">♻️</div>
-      <h3>Materiales reciclados</h3>
-      <p>Utilizamos cartón y otros materiales para dar una nueva utilidad a elementos que podrían desecharse.</p>
-    </article>
-    <article class="tarjeta">
-      <div class="icono">🏀</div>
-      <h3>Juego recreativo</h3>
-      <p>El aro permite encestar bolitas de papel desde una distancia adecuada y sumar puntos.</p>
-    </article>
-    <article class="tarjeta">
-      <div class="icono">🤝</div>
-      <h3>Convivencia</h3>
-      <p>La actividad fomenta la participación, el respeto de turnos y el trabajo en equipo.</p>
-    </article>
-  </div>
-</section>
-
-<section id="productos">
-  <div class="titulo">
-    <small>Elige tu favorito</small>
-    <h2>Nuestros cuatro diseños</h2>
-    <p>Cada Tacho Recreativo está pensado para convertir la limpieza en un momento entretenido.</p>
-  </div>
-
-  <div class="productos">
-
-    <article class="producto">
-      <div class="dibujo-tacho"><span class="aro"></span>🏀</div>
-      <h3>1. Clásico Básquet</h3>
-      <p>Diseño sencillo con estilo deportivo tradicional.</p>
-      <div class="precio">S/ 6</div>
-      <button class="boton boton-verde" onclick="elegirProducto('Clásico Básquet',6)">Elegir diseño</button>
-    </article>
-
-    <article class="producto">
-      <div class="dibujo-tacho"><span class="aro"></span>🌿</div>
-      <h3>2. Eco Campeón</h3>
-      <p>Un diseño inspirado en el reciclaje y el cuidado ambiental.</p>
-      <div class="precio">S/ 7</div>
-      <button class="boton boton-verde" onclick="elegirProducto('Eco Campeón',7)">Elegir diseño</button>
-    </article>
-
-    <article class="producto">
-      <div class="dibujo-tacho"><span class="aro"></span>🔥</div>
-      <h3>3. Fuego Deportivo</h3>
-      <p>Un estilo llamativo para quienes aman el deporte.</p>
-      <div class="precio">S/ 7</div>
-      <button class="boton boton-verde" onclick="elegirProducto('Fuego Deportivo',7)">Elegir diseño</button>
-    </article>
-
-    <article class="producto">
-      <div class="dibujo-tacho"><span class="aro"></span>⭐</div>
-      <h3>4. Personalizado Total</h3>
-      <p>Incluye nombre, color, equipo y frase elegida.</p>
-      <div class="precio">S/ 8</div>
-      <button class="boton boton-verde" onclick="elegirProducto('Personalizado Total',8)">Elegir diseño</button>
-    </article>
-
-  </div>
-
-  <div class="aviso">
-    🎁 ¡PROMOCIÓN! Los primeros 10 clientes reciben personalización gratis.
-  </div>
-  <p style="text-align:center;margin-top:18px;font-weight:bold">
-    Costo de producción por unidad: S/ 5
-  </p>
-</section>
-
-<section id="personalizar">
-  <div class="titulo">
-    <small>Diseña a tu manera</small>
-    <h2>Personaliza tu Tacho Recreativo</h2>
-    <p>Elige tu diseño y cuéntanos cómo te gustaría que fuera.</p>
-  </div>
-
-  <div class="personalizador">
-    <div class="campo">
-      <label for="diseno">Selecciona un diseño</label>
-      <select id="diseno" onchange="actualizarPrecio()">
-        <option value="Clásico Básquet">Clásico Básquet - S/ 6</option>
-        <option value="Eco Campeón">Eco Campeón - S/ 7</option>
-        <option value="Fuego Deportivo">Fuego Deportivo - S/ 7</option>
-        <option value="Personalizado Total">Personalizado Total - S/ 8</option>
-      </select>
-    </div>
-
-    <div class="campo">
-      <label for="nombre">Nombre que irá en el tacho</label>
-      <input id="nombre" type="text" maxlength="25" placeholder="Ejemplo: Mi salón">
-    </div>
-
-    <div class="campo">
-      <label for="equipo">Equipo favorito o salón</label>
-      <input id="equipo" type="text" maxlength="30" placeholder="Ejemplo: Los campeones">
-    </div>
-
-    <div class="campo">
-      <label for="color">Color preferido</label>
-      <select id="color">
-        <option>Verde</option>
-        <option>Azul</option>
-        <option>Rojo</option>
-        <option>Amarillo</option>
-        <option>Morado</option>
-        <option>Negro</option>
-        <option>Otro</option>
-      </select>
-    </div>
-
-    <div class="campo">
-      <label for="frase">Frase para tu diseño</label>
-      <input id="frase" type="text" maxlength="45" placeholder="Ejemplo: Un tiro limpio">
-    </div>
-
-    <div id="precioPersonalizado">Precio: S/ 6</div>
-    <button class="boton boton-verde" style="width:100%" onclick="pedirPersonalizado()">
-      Solicitar mi diseño por WhatsApp
-    </button>
-  </div>
-</section>
-
-<section class="juego-seccion" id="juego">
-  <div class="titulo">
-    <small>¡Pon a prueba tu puntería!</small>
-    <h2>El reto ECO-Deporte</h2>
-    <p>Diviértete encestando bolitas de papel. Cada acierto suma puntos.</p>
-  </div>
-
-  <div class="juego-contenedor">
-    <div class="instrucciones">
-      <h3>🏀 ¡Encesta y gana puntos!</h3>
-      <p>Presiona «Lanzar» para intentar encestar. Tienes 10 lanzamientos.</p>
-    </div>
-
-    <div class="puntajes">
-      <div class="puntaje">Puntos: <span id="puntos">0</span></div>
-      <div class="puntaje">Intentos: <span id="intentos">0</span>/10</div>
-      <div class="puntaje">Aciertos: <span id="aciertos">0</span></div>
-    </div>
-
-    <canvas id="cancha" width="720" height="390">
-      Tu navegador no puede mostrar este juego.
-    </canvas>
-
-    <div class="controles-juego">
-      <button class="boton boton-verde" id="lanzar" onclick="lanzarPelota()">🏀 Lanzar papel</button>
-      <button class="boton" onclick="reiniciarJuego()">↻ Reiniciar juego</button>
-    </div>
-    <p id="mensajeJuego" aria-live="polite">¡Prepárate! Haz tu primer lanzamiento.</p>
-  </div>
-</section>
-
-<section class="promo">
-  <h2>¡La limpieza también puede ser divertida!</h2>
-  <p>Los primeros 10 clientes reciben personalización gratis. Elige tu diseño y transforma tu manera de cuidar el aula.</p>
-  <a class="boton" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">¡Quiero más información!</a>
-</section>
-
-<section id="equipo">
-  <div class="titulo">
-    <small>Trabajo en equipo</small>
-    <h2>Conoce a nuestro equipo</h2>
-    <p>Cada integrante aporta sus habilidades para hacer realidad ECO-Deporte.</p>
-  </div>
-
-  <div class="equipo">
-    <article class="integrante">
-      <div class="avatar">💻</div>
-      <h3>David Casrillo</h3>
-      <p>Desarrollo de la página web</p>
-    </article>
-    <article class="integrante">
-      <div class="avatar">🔍</div>
-      <h3>Jhonatan Vallembrocio</h3>
-      <p>Verificación del funcionamiento</p>
-    </article>
-    <article class="integrante">
-      <div class="avatar">🎨</div>
-      <h3>Diego Espinoza</h3>
-      <p>Diseño de afiches</p>
-    </article>
-    <article class="integrante">
-      <div class="avatar">🛠️</div>
-      <h3>Piero Santos</h3>
-      <p>Elaboración del producto</p>
-    </article>
-    <article class="integrante">
-      <div class="avatar">📢</div>
-      <h3>Thiago Ramos</h3>
-      <p>Promoción y difusión</p>
-    </article>
-  </div>
-</section>
-
-<section class="contacto" id="contacto">
-  <h2>¡Contáctanos!</h2>
-  <p>¿Quieres conocer más sobre ECO-Deporte o solicitar tu Tacho Recreativo?</p>
-  <a class="telefono" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">
-    📱 902 063 848
-  </a>
-  <br>
-  <a class="boton boton-verde" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">
-    Escribir por WhatsApp
-  </a>
-  <p style="margin-top:17px">Síguenos y comparte nuestra propuesta en Facebook, TikTok y WhatsApp.</p>
-</section>
-
-</main>
-
-<footer>
-  <p><strong>ECO-Deporte</strong> | Un tiro limpio por el planeta.</p>
-  <p>Haz de la limpieza una experiencia divertida.</p>
-  <p>© 2026 ECO-Deporte. Proyecto escolar de emprendimiento.</p>
-</footer>
-
+<section class="hero" id="inicio"><div><span class="etiqueta">♻️ Diversión que cuida el planeta</span><h1>Un tiro limpio por el <span>planeta</span></h1><p>Convertimos el reciclaje en una experiencia divertida. Conoce el Tacho Recreativo: una idea que une el deporte, la creatividad y el cuidado de nuestro salón.</p><a class="boton" href="#productos">Conoce nuestros diseños</a></div><div class="hero-visual"><div class="tacho-ilustrado"><div class="mini-aro"></div>ECO</div></div></section>
+<section id="proyecto"><div class="titulo"><small>Conoce nuestra propuesta</small><h2>¿Por qué nace ECO-Deporte?</h2><p>Identificamos una situación en el aula y decidimos convertirla en una oportunidad de cambio.</p></div><div class="tarjetas"><article class="tarjeta"><div class="icono">📄</div><h3>El problema</h3><p>En las aulas quedan papeles en el suelo. Además, algunos estudiantes buscan diversión utilizando inadecuadamente el mobiliario escolar.</p></article><article class="tarjeta"><div class="icono">💡</div><h3>Nuestra solución</h3><p>Elaboramos tachos recreativos con materiales reciclados y un pequeño aro de básquet para encestar bolitas de papel.</p></article><article class="tarjeta"><div class="icono">🌎</div><h3>Nuestro propósito</h3><p>Promover la limpieza, la creatividad, el compañerismo y el cuidado del ambiente mediante una actividad recreativa.</p></article></div></section>
+<section class="propuesta"><div class="titulo"><small>Nuestro valor</small><h2>¿Qué ofrecemos?</h2><p>Un producto creativo, económico y elaborado con materiales reciclados.</p></div><div class="tarjetas"><article class="tarjeta"><div class="icono">♻️</div><h3>Materiales reciclados</h3><p>Utilizamos cartón y otros materiales para dar una nueva utilidad a elementos que podrían desecharse.</p></article><article class="tarjeta"><div class="icono">🏀</div><h3>Juego recreativo</h3><p>El aro permite encestar bolitas de papel desde una distancia adecuada y sumar puntos.</p></article><article class="tarjeta"><div class="icono">🤝</div><h3>Convivencia</h3><p>La actividad fomenta la participación, el respeto de turnos y el trabajo en equipo.</p></article></div></section>
+<section id="productos"><div class="titulo"><small>Elige tu favorito</small><h2>Nuestros cuatro diseños</h2><p>Cada Tacho Recreativo está pensado para convertir la limpieza en un momento entretenido.</p></div><div class="productos">
+<article class="producto"><div class="dibujo-tacho"><span class="aro"></span>🏀</div><h3>1. Clásico Básquet</h3><p>Diseño sencillo con estilo deportivo tradicional.</p><div class="precio">S/ 6</div><button class="boton boton-verde" onclick="elegirProducto('Clásico Básquet',6,this)">Elegir diseño</button></article>
+<article class="producto"><div class="dibujo-tacho"><span class="aro"></span>🌿</div><h3>2. Eco Campeón</h3><p>Un diseño inspirado en el reciclaje y el cuidado ambiental.</p><div class="precio">S/ 7</div><button class="boton boton-verde" onclick="elegirProducto('Eco Campeón',7,this)">Elegir diseño</button></article>
+<article class="producto"><div class="dibujo-tacho"><span class="aro"></span>🔥</div><h3>3. Fuego Deportivo</h3><p>Un estilo llamativo para quienes aman el deporte.</p><div class="precio">S/ 7</div><button class="boton boton-verde" onclick="elegirProducto('Fuego Deportivo',7,this)">Elegir diseño</button></article>
+<article class="producto"><div class="dibujo-tacho"><span class="aro"></span>⭐</div><h3>4. Personalizado Total</h3><p>Incluye nombre, color, equipo y frase elegida.</p><div class="precio">S/ 8</div><button class="boton boton-verde" onclick="elegirProducto('Personalizado Total',8,this)">Elegir diseño</button></article></div><div class="aviso">🎁 ¡PROMOCIÓN! Los primeros 10 clientes reciben personalización gratis.</div><p style="text-align:center;margin-top:18px;font-weight:bold">Costo de producción por unidad: S/ 5</p></section>
+<section id="personalizar"><div class="titulo"><small>Diseña a tu manera</small><h2>Personaliza tu Tacho Recreativo</h2><p>Elige tu diseño y cuéntanos cómo te gustaría que fuera.</p></div><div class="personalizador"><div class="campo"><label for="diseno">Selecciona un diseño</label><select id="diseno" onchange="actualizarPrecio()"><option value="Clásico Básquet">Clásico Básquet - S/ 6</option><option value="Eco Campeón">Eco Campeón - S/ 7</option><option value="Fuego Deportivo">Fuego Deportivo - S/ 7</option><option value="Personalizado Total">Personalizado Total - S/ 8</option></select></div><div class="campo"><label for="nombre">Nombre que irá en el tacho</label><input id="nombre" type="text" maxlength="25" placeholder="Ejemplo: Mi salón"></div><div class="campo"><label for="equipo">Equipo favorito o salón</label><input id="equipo" type="text" maxlength="30" placeholder="Ejemplo: Los campeones"></div><div class="campo"><label for="color">Color preferido</label><select id="color"><option>Verde</option><option>Azul</option><option>Rojo</option><option>Amarillo</option><option>Morado</option><option>Negro</option><option>Otro</option></select></div><div class="campo"><label for="frase">Frase para tu diseño</label><input id="frase" type="text" maxlength="45" placeholder="Ejemplo: Un tiro limpio"></div><div id="precioPersonalizado">Precio: S/ 6</div><button class="boton boton-verde" style="width:100%" onclick="pedirPersonalizado()">Solicitar mi diseño por WhatsApp</button></div></section>
+<section class="juego-seccion" id="juego"><div class="titulo"><small>¡Pon a prueba tu puntería!</small><h2>El reto ECO-Deporte</h2><p>Diviértete encestando bolitas de papel. Cada acierto suma puntos.</p></div><div class="juego-contenedor"><div class="instrucciones"><h3>🏀 ¡Encesta y gana puntos!</h3><p>Presiona «Lanzar papel» para intentar encestar. Tienes 10 lanzamientos.</p></div><div class="puntajes"><div class="puntaje">Puntos: <span id="puntos">0</span></div><div class="puntaje">Intentos: <span id="intentos">0</span>/10</div><div class="puntaje">Aciertos: <span id="aciertos">0</span></div></div><canvas id="cancha" width="720" height="390" role="img" aria-label="Juego de lanzar una bolita de papel hacia una canasta">Tu navegador no puede mostrar este juego.</canvas><div class="controles-juego"><button class="boton boton-verde" id="lanzar" onclick="lanzarPelota()">🏀 Lanzar papel</button><button class="boton" onclick="reiniciarJuego()">↻ Reiniciar juego</button></div><p id="mensajeJuego" aria-live="polite">¡Prepárate! Haz tu primer lanzamiento.</p></div></section>
+<section class="promo"><h2>¡La limpieza también puede ser divertida!</h2><p>Los primeros 10 clientes reciben personalización gratis. Elige tu diseño y transforma tu manera de cuidar el aula.</p><a class="boton" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">¡Quiero más información!</a></section>
+<section id="equipo"><div class="titulo"><small>Trabajo en equipo</small><h2>Conoce a nuestro equipo</h2><p>Cada integrante aporta sus habilidades para hacer realidad ECO-Deporte.</p></div><div class="equipo"><article class="integrante"><div class="avatar">💻</div><h3>David Casrillo</h3><p>Desarrollo de la página web</p></article><article class="integrante"><div class="avatar">🔍</div><h3>Jhonatan Vallembrocio</h3><p>Verificación del funcionamiento</p></article><article class="integrante"><div class="avatar">🎨</div><h3>Diego Espinoza</h3><p>Diseño de afiches</p></article><article class="integrante"><div class="avatar">🛠️</div><h3>Piero Santos</h3><p>Elaboración del producto</p></article><article class="integrante"><div class="avatar">📢</div><h3>Thiago Ramos</h3><p>Promoción y difusión</p></article></div></section>
+<section class="contacto" id="contacto"><h2>¡Contáctanos!</h2><p>¿Quieres conocer más sobre ECO-Deporte o solicitar tu Tacho Recreativo?</p><a class="telefono" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">📱 902 063 848</a><br><a class="boton boton-verde" href="https://wa.me/51902063848?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">Escribir por WhatsApp</a><p style="margin-top:17px">Síguenos y comparte nuestra propuesta en Facebook, TikTok y WhatsApp.</p></section>
+</main><footer><p><strong>ECO-Deporte</strong> | Un tiro limpio por el planeta.</p><p>Haz de la limpieza una experiencia divertida.</p><p>© 2026 ECO-Deporte. Proyecto escolar de emprendimiento.</p></footer>
 <script>
-/* CONTACTO Y PEDIDOS */
-const WHATSAPP = "51902063848";
-const MENSAJE_BASE = "Hola, quisiera más información.";
+const WHATSAPP="51902063848";
+function abrirWhatsApp(mensaje){window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(mensaje),"_blank");}
+function elegirProducto(nombre,precio,boton){document.querySelectorAll('.producto').forEach(t=>t.classList.remove('seleccionado'));if(boton)boton.closest('.producto').classList.add('seleccionado');document.getElementById('diseno').value=nombre;actualizarPrecio();document.getElementById('personalizar').scrollIntoView({behavior:'smooth'});}
+function actualizarPrecio(){const precios={'Clásico Básquet':6,'Eco Campeón':7,'Fuego Deportivo':7,'Personalizado Total':8};document.getElementById('precioPersonalizado').textContent='Precio: S/ '+precios[document.getElementById('diseno').value];}
+function pedirPersonalizado(){const diseno=document.getElementById('diseno').value;const nombre=document.getElementById('nombre').value.trim();const equipo=document.getElementById('equipo').value.trim();const color=document.getElementById('color').value;const frase=document.getElementById('frase').value.trim();const precios={'Clásico Básquet':6,'Eco Campeón':7,'Fuego Deportivo':7,'Personalizado Total':8};const mensaje='Hola, quisiera más información.\n\nQuiero solicitar un Tacho Recreativo ECO-Deporte.\nDiseño: '+diseno+'\nNombre: '+(nombre||'Por definir')+'\nEquipo o salón: '+(equipo||'Por definir')+'\nColor: '+color+'\nFrase: '+(frase||'Por definir')+'\nPrecio: S/ '+precios[diseno];abrirWhatsApp(mensaje);}
 
-function abrirWhatsApp(mensaje) {
-  const url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
-  window.open(url, "_blank");
+/* JUEGO DE ENCESTAR: dibujo inicial visible y lanzamiento animado */
+const canvas=document.getElementById('cancha');
+const ctx=canvas.getContext('2d');
+let puntos=0,intentos=0,aciertos=0,animando=false,frameId=null;
+let pelota={x:105,y:310,r:13};
+const canasta={x:525,y:112,w:105,h:12};
+function dibujarCancha(){
+ const w=canvas.width,h=canvas.height;
+ ctx.clearRect(0,0,w,h);
+ // Fondo y suelo
+ const grad=ctx.createLinearGradient(0,0,0,h);grad.addColorStop(0,'#e8f5e9');grad.addColorStop(1,'#c8e0c9');ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
+ ctx.fillStyle='#8fc58e';ctx.fillRect(0,335,w,55);ctx.strokeStyle='#ffffff';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(0,335);ctx.lineTo(w,335);ctx.stroke();
+ // Tacho de reciclaje visible
+ ctx.fillStyle='#b77d43';ctx.strokeStyle='#70451f';ctx.lineWidth=6;ctx.fillRect(55,235,112,100);ctx.strokeRect(55,235,112,100);ctx.fillStyle='#70451f';ctx.fillRect(47,225,128,13);ctx.fillStyle='#fff7df';ctx.font='bold 20px Arial';ctx.textAlign='center';ctx.fillText('ECO',111,292);ctx.font='14px Arial';ctx.fillText('PAPEL',111,314);
+ // Poste y tablero
+ ctx.strokeStyle='#687c70';ctx.lineWidth=12;ctx.beginPath();ctx.moveTo(605,125);ctx.lineTo(605,335);ctx.stroke();
+ ctx.fillStyle='#ffffff';ctx.strokeStyle='#45634d';ctx.lineWidth=5;ctx.fillRect(500,35,145,88);ctx.strokeRect(500,35,145,88);
+ ctx.strokeStyle='#e65b35';ctx.lineWidth=7;ctx.strokeRect(535,58,76,53);
+ // Aro y red
+ ctx.strokeStyle='#e45d2d';ctx.lineWidth=8;ctx.beginPath();ctx.ellipse(canasta.x+canasta.w/2,canasta.y,canasta.w/2,10,0,0,Math.PI*2);ctx.stroke();
+ ctx.strokeStyle='#ffffff';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(canasta.x+8,canasta.y+5);ctx.lineTo(canasta.x+25,canasta.y+62);ctx.lineTo(canasta.x+80,canasta.y+62);ctx.lineTo(canasta.x+97,canasta.y+5);ctx.moveTo(canasta.x+30,canasta.y+7);ctx.lineTo(canasta.x+39,canasta.y+60);ctx.moveTo(canasta.x+75,canasta.y+7);ctx.lineTo(canasta.x+66,canasta.y+60);ctx.moveTo(canasta.x+12,canasta.y+25);ctx.lineTo(canasta.x+92,canasta.y+25);ctx.moveTo(canasta.x+18,canasta.y+43);ctx.lineTo(canasta.x+86,canasta.y+43);ctx.stroke();
+ // Línea de lanzamiento y pelota
+ ctx.setLineDash([7,7]);ctx.strokeStyle='#64856b';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(190,320);ctx.lineTo(470,320);ctx.stroke();ctx.setLineDash([]);
+ dibujarPelota(pelota.x,pelota.y,pelota.r);
+ ctx.fillStyle='#315a3d';ctx.font='bold 16px Arial';ctx.textAlign='left';ctx.fillText('LANZA LA BOLITA DE PAPEL',190,365);
 }
-
-/* SELECCIÓN DE PRODUCTOS */
-function elegirProducto(nombre, precio) {
-  document.querySelectorAll(".producto").forEach(function(tarjeta) {
-    tarjeta.classList.remove("seleccionado");
-  });
-
-  const boton = event.currentTarget;
-  boton.closest(".producto").classList.add("seleccionado");
-
-  document.getElementById("diseno").value = nombre;
-  actualizarPrecio();
-
-  document.getElementById("personalizar").scrollIntoView({behavior:"smooth"});
-}
-
-function actualizarPrecio() {
-  const diseno = document.getElementById("diseno").value;
-  const precios = {
-    "Clásico Básquet": 6,
-    "Eco Campeón": 7,
-    "Fuego Deportivo": 7,
-    "Personalizado Total": 8
-  };
-
-  document.getElementById("precioPersonalizado").textContent =
-    "Precio: S/ " + precios[diseno];
-}
-
-function pedirPersonalizado() {
-  const diseno = document.getElementById("diseno").value;
-  const nombre = document.getElementById("nombre").value.trim();
-  const equipo = document.getElementById("equipo").value.trim();
-  const color = document.getElementById("color").value;
-  const frase = document.getElementById("frase").value.trim();
-
-  const precios = {
-    "Clásico Básquet": 6,
-    "Eco Campeón": 7,
-    "Fuego Deportivo": 7,
-    "Personalizado Total": 8
-  };
-
-  const mensaje =
-    "Hola, quisiera más información.\n\n" +
-    "Quiero solicitar un Tacho Recreativo ECO-Deporte.\n" +
-    "Diseño: " + diseno + "\n" +
-    "Nombre: " + (nombre || "Por definir") + "\n" +
-    "Equipo o salón: " + (equipo || "Por definir") + "\n" +
-    "Color: " + color + "\n" +
-    "Frase: " + (frase || "Por definir") + "\n" +
-    "Precio: S/ " + precios[diseno];
-
-  abrirWhatsApp(mensaje);
-}
-
-/* JUEGO DE ENCESTAR */
-const canvas = document.getElementById("cancha");
-const ctx = canvas.getContext("2d");
-
-let puntos = 0;
-let intentos = 0;
-let aciertos = 0;
-let animando = false;
-let pelota = null;
-let resultadoPendiente = false;
-
-const aro = {
-  x: 520,
-  y: 115,
-  ancho: 100,
-  alto: 12
-};
-
-function dibujarCancha() {
-  const w = canvas.width;
-  const 
+function dibujarPelota(x,y,r){ctx.save();ctx.shadowColor='#0003';ctx.shadowBlur=6;ctx.shadowOffsetY=3;ctx.fillStyle='#fffdf0';ctx.strokeStyle='#c8c4ad';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowColor='transparent';ctx.strokeStyle='#d5d0bd';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x-r/2,y-r/3);ctx.quadraticCurveTo(x+2,y-2,x+r/2,y+r/3);ctx.moveTo(x-r/3,y+r/2);ctx.quadraticCurveTo(x,y,x+r/3,y-r/2);ctx.stroke();ctx.restore();}
+function actualizarMarcador(){document.getElementById('puntos').textContent=puntos;document.getElementById('intentos').textContent=intentos;document.getElementById('aciertos').textContent=aciertos;}
+function lanzarPelota(){if(animando)return;if(intentos>=10){document.getElementById('mensajeJuego').textContent='Terminaste los 10 lanzamientos. Pulsa Reiniciar para jugar otra vez.';return;}intentos++;actualizarMarcador();animando=true;document.getElementById('lanzar').disabled=true;document.getElementById('lanzar').style.opacity='.6';let t=0;const inicio={x:190,y:315};const final={x:canasta.x+canasta.w/2,y:canasta.y+8};const entra=Math.random()>.38;function animar(){t+=0.025;const progreso=Math.min(t,1);const destinoX=entra?final.x:final.x+75;const destinoY=entra?final.y:final.y+45;pelota.x=inicio.x+(destinoX-inicio.x)*progreso;pelota.y=inicio.y+(destinoY-inicio.y)*progreso-155*Math.sin(Math.PI*progreso);dibujarCancha();if(progreso<1){frameId=requestAnimationFrame(animar);}else{animando=false;document.getElementById('lanzar').disabled=false;document.getElementById('lanzar').style.opacity='1';if(entra){aciertos++;puntos+=10;document.getElementById('mensajeJuego').textContent='¡CANASTA! +10 puntos. ¡Buen lanzamiento!';}else{document.getElementById('mensajeJuego').textContent='¡Casi! Sigue intentando, todavía puedes encestar.';}actualizarMarcador();setTimeout(()=>{pelota={x:105,y:310,r:13};dibujarCancha();if(intentos>=10)document.getElementById('mensajeJuego').textContent+=' Resultado final: '+puntos+' puntos.';},650);}}animar();}
+function reiniciarJuego(){if(frameId)cancelAnimationFrame(frameId);puntos=0;intentos=0;aciertos=0;animando=false;pelota={x:105,y:310,r:13};document.getElementById('lanzar').disabled=false;document.getElementById('lanzar').style.opacity='1';document.getElementById('mensajeJuego').textContent='¡Juego reiniciado! Haz tu primer lanzamiento.';actualizarMarcador();dibujarCancha();}
+actualizarPrecio();actualizarMarcador();dibujarCancha();
+</script>
+</body>
+</html>
